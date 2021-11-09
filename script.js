@@ -90,14 +90,14 @@
 
 // 6.Method => CREATING AN ELEMENT
 //# akta div element creat. 
-const divElement = document.createElement('div');
+// const divElement = document.createElement('div');
 //# class name add. 
-divElement.className = 'red';
+// divElement.className = 'red';
 //# ID attrebute add. 
-divElement.setAttribute('id', 'red');
-divElement.setAttribute('title', 'Red Div');
+// divElement.setAttribute('id', 'red');
+// divElement.setAttribute('title', 'Red Div');
 
-const container = document.querySelector('.todo-list');
+// const container = document.querySelector('.todo-list');
 // const h2Element = container.querySelector('h2');
 //# 'insertBefore' ar kaj holo html ar vitore, kono akta line ar agy notun kono line add kora. '(1st a hobe ki add korty cai, 2nd hobe kar agy add korty cai)'
 // container.insertBefore(divElement, h2Element);
@@ -129,22 +129,31 @@ const container = document.querySelector('.todo-list');
 //     console.log(event);
 // })
 
+//# select elements & assign them to variable 
+//# input box select
 let newTask = document.querySelector('#new-task');
- let form = document.querySelector('form');
- let todoUl = document.querySelector('#items');
- let completeUl = document.querySelector('.complete-list ul');
+//# form select
+let form = document.querySelector('form');
+//# incomplet task select 
+let todoUl = document.querySelector('#items');
+//# complete task select
+let completeUl = document.querySelector('.complete-list ul');
 
 
 // functions
 let createTask = function(task) {
+    //# list creat kora 
     let listItem = document.createElement('li');
+    //# cheakbox creat  
     let checkBox = document.createElement('input');
     let label = document.createElement('label');
 
     label.innerText = task;
     checkBox.type = 'checkbox';
 
+    //# checkbox a click korle box ti select hoy jabe 
     listItem.appendChild(checkBox);
+    //# amra je task ar nam jetai dibo setai show korbe 
     listItem.appendChild(label);
 
     return listItem;
@@ -159,7 +168,9 @@ let addTask = function(event) {
     bindInCompleteItems(listItem, completeTask);
 }
 
+//# add task ar input field a kono task assign korar je function. 
 let completeTask = function() {
+    //# page jeno relode na hoy. 
     let listItem = this.parentNode;
     let deleteBtn = document.createElement('button');
     deleteBtn.innerText = 'Delete';
